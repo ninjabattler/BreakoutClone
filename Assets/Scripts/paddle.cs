@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class paddle : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float speed = 1;
     void Start()
     {
         
@@ -13,6 +13,13 @@ public class paddle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //Move Left
+        if(Input.GetKey("a")){
+            gameObject.transform.Translate(Vector3.left * speed / 100);
+        }
+        //Move Right
+        if(Input.GetKey("d")){
+            gameObject.transform.Translate(Vector3.right * speed / 100);
+        }
     }
 }
