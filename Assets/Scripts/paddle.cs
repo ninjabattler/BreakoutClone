@@ -13,13 +13,19 @@ public class paddle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Move Left
+        //Move Left/Right
         if(Input.GetKey("a")){
             gameObject.transform.Translate(Vector3.left * speed / 100);
-        }
-        //Move Right
-        if(Input.GetKey("d")){
+        } else if(Input.GetKey("d")){
             gameObject.transform.Translate(Vector3.right * speed / 100);
+        }
+        //Speed Up
+        if(Input.GetKeyDown(KeyCode.LeftShift)){
+            speed *= 2;
+        }
+        //Speed Down
+        if(Input.GetKeyUp(KeyCode.LeftShift)){
+            speed /= 2;
         }
     }
 }

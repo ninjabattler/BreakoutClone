@@ -17,9 +17,11 @@ public class ball : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision collision){
-        Debug.Log(collision.gameObject);
-        if(collision.gameObject.name == "Paddle"){
+        if(collision.gameObject.name == "Paddle" || collision.gameObject.name == "Ceiling"){
             speed.y *= -1;
+        }
+        if(collision.gameObject.name == "Wall"){
+            speed.x *= -1;
         }
     }
 }
