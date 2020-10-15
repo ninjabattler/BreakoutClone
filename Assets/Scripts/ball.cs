@@ -17,11 +17,20 @@ public class ball : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision collision){
-        if(collision.gameObject.name == "Paddle" || collision.gameObject.name == "Ceiling"){
-            speed.y *= -1;
+        // if(collision.gameObject.name == "Paddle" || collision.gameObject.name == "Ceiling"){
+        //     speed.y *= -1;
+        // }
+        // if(collision.gameObject.name == "Wall"){
+        //     speed.x *= -1;
+        // }
+        Vector3 contact = collision.GetContact(0).point - gameObject.transform.position;
+
+        if(contact.x != 0){
+           speed.x *= -1;
         }
-        if(collision.gameObject.name == "Wall"){
-            speed.x *= -1;
+        if(contact.y != 0){
+           speed.y *= -1;
         }
+        Debug.Log(collision.GetContact(0).point - gameObject.transform.position);
     }
 }

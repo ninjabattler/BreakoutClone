@@ -24,7 +24,7 @@ public class paddle : MonoBehaviour
             speed *= 2;
         }
         //Speed Down
-        if(Input.GetKeyUp(KeyCode.LeftShift)){
+        if(Input.GetKeyDown(KeyCode.LeftControl)){
             speed /= 2;
         }
     }
